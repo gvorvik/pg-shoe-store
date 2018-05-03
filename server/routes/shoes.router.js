@@ -40,7 +40,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const shoe = req.body;
-    console.log(shoe);    
+    console.log(shoe);   
 
     //the $1, $2, and array after is a way for pg to sanitize information
     //and prevent malicious users from entering hard coded code to drop table or return
@@ -54,6 +54,24 @@ router.post('/', (req, res) => {
             console.log(error);
             res.sendStatus(500);
         });
+});
+
+router.put('/', (req, res) => {
+    const shoe = req.body;
+    console.log(shoe);
+    
+    pool.query(`UPDATE "shoes"
+    SET "type" = ($1),
+    "cost" = ($2)
+    WHERE "id" = ($3)
+    `, [shoe.type, shoe.cost, shoe.id])
+    .then((results) => {
+        res.sendStatus(200);
+    })
+    .catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
 });
 
 router.delete('/', (req, res) => {

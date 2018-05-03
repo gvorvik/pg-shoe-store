@@ -52,6 +52,7 @@ app.service('MainService',['$http', function($http) {
             })
             .then(function(response) {
                 console.log(response);
+                self.getShoes();
             })
             .catch(function(error) {
                 console.log(error);            
