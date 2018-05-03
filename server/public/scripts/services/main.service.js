@@ -19,9 +19,7 @@ app.service('MainService',['$http', function($http) {
             url: '/shoes'
         })
         .then(function(response) {
-            console.log(response);
             self.shoeList.results = response.data.rows;
-            console.log(self.shoeList.results);
         })
         .catch(function(error) {
             console.log(error);
@@ -43,5 +41,21 @@ app.service('MainService',['$http', function($http) {
             console.log(error);
             
         })
+    }
+
+    self.deleteShoes = function(shoe) {
+        console.log(shoe);
+        $http({
+            method: 'DELETE',
+            url: '/shoes',
+            params: shoe
+        })
+        .then(function(response) {
+            console.log(response);
+            self.getShoes();
+        })
+        .catch(function(error) {
+            console.log(error);            
+        });
     }
 }]);

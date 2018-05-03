@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+
 //pg is to SQL as mongoose is to MongoDB
 const pg = require('pg');
 
