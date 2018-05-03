@@ -6,6 +6,10 @@ const pg = require('pg');
 
 const Shoes = require('./modules/shoe.module');
 
+const shoeRoute = require('./routes/shoes.router');
+
+const PORT = process.env.PORT || 5000;
+
 //Capital P = class or constructor!!!
 //This code takes care of connecting to our database
 const Pool = pg.Pool;
@@ -27,12 +31,10 @@ pool.on('error', (error) => {
     console.log('Error with postgresql', error);
 });
 
-const shoeRoute = require('./routes/shoes.router');
-
-const PORT = process.env.PORT || 5000;
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+app.use(express.static('server/public'));
 
 app.get('/shoes', (req, res) => {
     res.send(Shoes);
