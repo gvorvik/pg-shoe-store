@@ -20,7 +20,7 @@ app.service('MainService',['$http', function($http) {
         })
         .then(function(response) {
             console.log(response);
-            self.shoeList.results = response.data;
+            self.shoeList.results = response.data.rows;
             console.log(self.shoeList.results);
         })
         .catch(function(error) {

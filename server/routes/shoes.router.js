@@ -28,7 +28,14 @@ pool.on('error', (error) => {
 
 
 router.get('/', (req, res) => {
-    res.send(Shoes);
+    pool.query(`SELECT * FROM "shoes";`)
+    .then(function(response) {
+        res.send(response);
+    })
+    .catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
 });
 
 router.post('/', (req, res) => {
