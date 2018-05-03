@@ -10,6 +10,9 @@
 </head>
 <body ng-app="ShoeApp" ng-controller = "ShoeController as vm">
     <h1>Shoe App</h1>
+    <input type="text" placeholder="What Shoes?" ng-model="vm.newShoes.type">
+    <input type="number" placeholder="What Cost?" ng-model="vm.newShoes.cost">
+    <button ng-click="vm.postShoes()">Add Shoes</button>
     <ul>
         <li ng-repeat="shoe in vm.shoeList">{{shoe.type}} costs {{shoe.cost}} dollars!</li>
     </ul>

@@ -42,18 +42,23 @@ app.get('/shoes', (req, res) => {
 
 app.post('/shoes', (req, res) => {
     const shoe = req.body;
+
+    Shoes.push(shoe);
+    console.log(Shoes);
+    res.sendStatus(200);
+    
     //the $1, $2, and array after is a way for pg to sanitize information
     //and prevent malicious users from entering hard coded code to drop table or return
     //private information
-    pool.query(`INSERT INTO "shoes" ("type", "cost")
-                VALUES ($1, $2);`, [shoe.type, shoe.cost])
-        .then((results) => {
-            res.sendStatus(200);
-        })
-        .catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
-        });
+    // pool.query(`INSERT INTO "shoes" ("type", "cost")
+    //             VALUES ($1, $2);`, [shoe.type, shoe.cost])
+    //     .then((results) => {
+    //         res.sendStatus(200);
+    //     })
+    //     .catch((error) => {
+    //         console.log(error);
+    //         res.sendStatus(500);
+    //     });
 });
 
 // app.use('/shoes', shoeRoute);

@@ -7,6 +7,11 @@ app.controller('ShoeController', ['$http', function($http) {
     
     var self = this;
 
+    self.newShoes = {
+        type: '',
+        cost: ''
+    };
+
     self.shoeList = [];
 
     self.getShoes = function() {
@@ -20,6 +25,23 @@ app.controller('ShoeController', ['$http', function($http) {
         })
         .catch(function(error) {
             console.log(error);
+        })
+    }
+
+    self.postShoes = function() {
+        console.log(self.newShoes);
+        $http({
+            method: 'POST',
+            url: '/shoes',
+            data: self.newShoes
+        })
+        .then(function(response) {
+            console.log(response);
+            self.getShoes();
+        })
+        .catch(function(error) {
+            console.log(error);
+            
         })
     }
 
