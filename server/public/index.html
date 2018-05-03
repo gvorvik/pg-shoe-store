@@ -18,7 +18,7 @@
     <ul>
         <li ng-repeat="shoe in vm.shoeList.results">
             <input ng-model="shoe.type"> cost <input ng-model="shoe.cost"> dollars!
-            <button>Edit</button>
+            <button ng-click="vm.editShoes(shoe)">Save</button>
             <button ng-click="vm.deleteShoes(shoe)">Delete</button>
         </li>
     </ul>

@@ -12,6 +12,7 @@ app.controller('ShoeController', ['MainService', '$http', function(MainService, 
     self.getShoes = MainService.getShoes;
     self.postShoes = MainService.postShoes;
     self.deleteShoes = MainService.deleteShoes;
+    self.editShoes = MainService.editShoes;
 
     self.getShoes();
 

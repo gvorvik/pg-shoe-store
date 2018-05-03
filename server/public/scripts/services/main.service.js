@@ -43,6 +43,21 @@ app.service('MainService',['$http', function($http) {
         })
     }
 
+    self.editShoes = function(shoe) {
+        console.log(shoe);
+        $http({
+                method: 'PUT',
+                url: '/shoes',
+                data: shoe
+            })
+            .then(function(response) {
+                console.log(response);
+            })
+            .catch(function(error) {
+                console.log(error);            
+            })  
+    }
+
     self.deleteShoes = function(shoe) {
         console.log(shoe);
         $http({
