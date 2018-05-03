@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="./vendors/angular.js"></script>
+    <script src="./vendors/angular-route.js"></script>
     <script src="./scripts/client.js"></script>
+    <script src="./scripts/services/main.service.js"></script>
     <title>Document</title>
 </head>
 <body ng-app="ShoeApp" ng-controller = "ShoeController as vm">
@@ -14,7 +16,11 @@
     <input type="number" placeholder="What Cost?" ng-model="vm.newShoes.cost">
     <button ng-click="vm.postShoes()">Add Shoes</button>
     <ul>
-        <li ng-repeat="shoe in vm.shoeList">{{shoe.type}} costs {{shoe.cost}} dollars!</li>
+        <li ng-repeat="shoe in vm.shoeList.results">
+            <input ng-model="shoe.type"> cost <input ng-model="shoe.cost"> dollars!
+            <button>Edit</button>
+            <button>Delete</button>
+        </li>
     </ul>
 </body>
 </html>
