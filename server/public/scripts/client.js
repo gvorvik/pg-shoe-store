@@ -12,8 +12,8 @@ app.config(function($routeProvider){
         controller:  'ShoeController as vm'
     })
     .when('/socks', {
-        templateUrl: 'views/blue.html',
-        controller:  'BlueController as vm'
+        templateUrl: 'views/socks.html',
+        controller:  'SockController as vm'
     })
     .otherwise({
         template: '<h2>404</h2>'
