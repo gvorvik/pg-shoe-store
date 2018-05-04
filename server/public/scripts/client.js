@@ -1,19 +1,21 @@
 console.log('ClientJS Sourced');
 
-var app = angular.module('ShoeApp', []);
+var app = angular.module('ShoeApp', ['ngRoute']);
 
-app.controller('ShoeController', ['MainService', '$http', function(MainService, $http) {
-    console.log('Shoe Controller Loaded');
-    
-    var self = this;
-
-    self.shoeList = MainService.shoeList;
-    self.newShoes = MainService.newShoes;
-    self.getShoes = MainService.getShoes;
-    self.postShoes = MainService.postShoes;
-    self.deleteShoes = MainService.deleteShoes;
-    self.editShoes = MainService.editShoes;
-
-    self.getShoes();
-
-}]);
+app.config(function($routeProvider){
+    $routeProvider
+    .when('/', {
+        templateUrl: 'views/home.html'
+    })
+    .when('/shoes', {
+        templateUrl: 'views/shoes.html',
+        controller:  'ShoeController as vm'
+    })
+    .when('/socks', {
+        templateUrl: 'views/blue.html',
+        controller:  'BlueController as vm'
+    })
+    .otherwise({
+        template: '<h2>404</h2>'
+    });
+});

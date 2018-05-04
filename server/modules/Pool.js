@@ -1,3 +1,5 @@
+const pg = require('pg');
+
 //Capital P = class or constructor!!!
 //This code takes care of connecting to our database
 const Pool = pg.Pool;
@@ -18,3 +20,5 @@ pool.on('connect', () => {
 pool.on('error', (error) => {
     console.log('Error with postgresql', error);
 });
+
+module.exports = pool;

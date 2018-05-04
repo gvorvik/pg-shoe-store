@@ -7,20 +7,25 @@
     <script src="./vendors/angular.js"></script>
     <script src="./vendors/angular-route.js"></script>
     <script src="./scripts/client.js"></script>
+    <script src="./scripts/controllers/shoe.controller.js"></script>
     <script src="./scripts/services/main.service.js"></script>
     <title>Document</title>
 </head>
 <body ng-app="ShoeApp" ng-controller = "ShoeController as vm">
     <h1>Shoe App</h1>
-    <input type="text" placeholder="What Shoes?" ng-model="vm.newShoes.type">
-    <input type="number" placeholder="What Cost?" ng-model="vm.newShoes.cost">
-    <button ng-click="vm.postShoes()">Add Shoes</button>
     <ul>
-        <li ng-repeat="shoe in vm.shoeList.results">
-            <input ng-model="shoe.type"> cost <input ng-model="shoe.cost"> dollars!
-            <button ng-click="vm.editShoes(shoe)">Save</button>
-            <button ng-click="vm.deleteShoes(shoe)">Delete</button>
+        <li>
+            <a ng-href="#!/">Home</a>
+        </li>
+        <li>
+            <a ng-href="#!/shoes">Shoes</a>
+        </li>
+        <li>
+            <a ng-href="#!/socks">Socks</a>
         </li>
     </ul>
+    <ng-view>
+        
+    </ng-view>
 </body>
 </html>

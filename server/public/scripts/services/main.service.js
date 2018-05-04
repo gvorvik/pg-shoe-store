@@ -1,7 +1,5 @@
-
-
-app.service('MainService',['$http', function($http) {
-    console.log('Main Service Loaded');
+app.service('ShoeService',['$http', function($http) {
+    console.log('Shoe Service Loaded');
     var self = this;
 
     self.newShoes = {
