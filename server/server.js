@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const pg = require('pg');
 
 const shoeRoute = require('./routes/shoes.router');
+const sockRoute = require('./routes/sock.router');
 
 const PORT = process.env.PORT || 5000;
 
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 app.use('/shoes', shoeRoute);
+app.use('/socks', sockRoute);
 
 
 app.listen(PORT, () => {

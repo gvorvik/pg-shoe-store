@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Shoes = require('../modules/shoe.module');
-const pool = require('../modules/Pool');
+const pool = require('../modules/Shoe.Pool');
 
 router.get('/', (req, res) => {
     pool.query(`SELECT * FROM "shoes";`)

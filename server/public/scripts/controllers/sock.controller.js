@@ -10,6 +10,6 @@ app.controller('SockController', ['SockService', '$http', function(SockService, 
     self.deleteSocks = SockService.deleteSocks;
     self.editSocks = SockService.editSocks;
 
-    // self.getSocks();
+    self.getSocks();
 
 }]);

@@ -1,0 +1,8 @@
+<input type="text" placeholder="What Socks?" ng-model="vm.newSocks.type">
+<input type="number" placeholder="What Cost?" ng-model="vm.newSocks.cost">
+<button ng-click="vm.postSocks()">Add Shoes</button>
+<ul>
+    <li ng-repeat="sock in vm.sockList.results">
+        <input ng-model="sock.type"> socks cost <input ng-model="sock.cost"> dollars!
+    </li>
+</ul>
